@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap');
+@import 'tailwindcss';
+
+@theme {
+    --color-primary: #252422;
+    --color-secondary: #f9cdcd;
+    --color-neutral: #f4f4f4;
+    --color-dark: #111111;
+
+    --font-sans: 'Schibsted Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@layer base {
+    body {
+        @apply font-sans text-base text-primary bg-neutral antialiased selection:bg-primary selection:text-neutral;
+    }
+    section, main {
+        @apply px-5.5 py-13 md:px-[10.75rem] md:py-25;
+    }
+    a.btn, button.btn {
+    @apply relative inline-flex items-center justify-center overflow-hidden border border-current rounded-full px-12 pt-1 pb-0 text-current text-lg font-bold tracking-tight leading-loose no-underline uppercase whitespace-nowrap translate-z-0 transition-[border-color,color,background-color] ease-out duration-500 hover:bg-primary hover:text-neutral;
+  }
+    q {
+    @apply block text-[2.5rem] sm:text-[3.5rem] md:text-[4rem] font-bold tracking-[-0.05em] leading-[0.95] uppercase not-italic;
+  }
+}
