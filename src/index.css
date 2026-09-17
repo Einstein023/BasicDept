@@ -14,7 +14,7 @@
     body {
         @apply font-sans text-base text-primary bg-neutral antialiased selection:bg-primary selection:text-neutral;
     }
-    section, main {
+    section{
         @apply px-5.5 py-13 md:px-[10.75rem] md:py-25;
     }
     a.btn, button.btn {
