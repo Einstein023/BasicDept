@@ -2,6 +2,7 @@ import HeroVideo from "./components/HeroVideo"
 import Nav from "./components/Nav"
 import { useEffect } from 'react';
 import Lenis from 'lenis';
+import Hero from "./components/Hero";
 
 function App() {
   useEffect(() => {
@@ -33,6 +34,7 @@ function App() {
     <main>
       <Nav />
       <HeroVideo />
+      <Hero />
     </main>
   )
 }

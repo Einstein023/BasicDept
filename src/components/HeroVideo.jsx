@@ -79,7 +79,7 @@ export default function HeroVideo() {
 
   return (
     <div
-      className={`relative h-screen w-full overflow-hidden bg-primary ${hasInteracted ? 'cursor-auto' : 'cursor-none'}`}
+      className={`relative z-20 h-screen w-full overflow-hidden bg-primary ${hasInteracted ? 'cursor-auto' : 'cursor-none'}`}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}

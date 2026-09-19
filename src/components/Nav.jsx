@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const navLinks = [
   { label: 'Work', href: '#work' },
@@ -27,10 +27,31 @@ const offices = [
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollDifference = currentScrollY - lastScrollY.current;
+
+      if (isOpen || currentScrollY <= 10) {
+        setIsVisible(true);
+      } else if (Math.abs(scrollDifference) > 6) {
+        setIsVisible(scrollDifference < 0);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isOpen]);
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 mix-blend-difference text-neutral px-5.5 py-6 md:px-12 flex justify-between items-center">
+      <header className={`fixed left-0 right-0 top-0 z-50 flex items-center justify-between px-5.5 py-6 text-neutral mix-blend-difference transition-transform duration-300 ease-out md:px-12 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <a href="#" className="font-bold tracking-tighter text-xl uppercase no-underline">
           BASIC/DEPT®
         </a>

@@ -23,7 +23,8 @@
     q {
     @apply block text-[2.5rem] sm:text-[3.5rem] md:text-[4rem] font-bold tracking-[-0.05em] leading-[0.95] uppercase not-italic;
   }
-`   html.lenis, html.lenis body {
+  html.lenis,
+  html.lenis body {
     height: auto;
   }
 
